@@ -1,0 +1,9 @@
+name: dart_examples
+description: Several dart examples
+
+version: 1.0.0+1
+
+dependencies:
+
+dev_dependencies:
+  test: ^1.9.4
