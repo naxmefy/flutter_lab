@@ -1,8 +1,7 @@
-# flutter_lab
+# Flutter Lab
 
-my little flutter lab to test several things
+just testing rust.
 
+## todos
 
-## research results (flutter 1.9.1+6)
-
-- to use test package in flutter project use test ^1.6.0 (error in flutter test deps)
+- [ ] [00001_hello_world](/00001_hello_world)
