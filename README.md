@@ -24,7 +24,7 @@ My real "dart_lab" can be found at https://github.com/naxmefy/dart_lab
 
 - [x] [00007_hello_redux](/00007_hello_redux)
 - [x] [00008_redux_simple](/00008_hello_redux_simple)
-- [ ] [00009_redux_sqlite](/00009_redux_sqlite)
+- [x] [00009_redux_sqlite](/00009_redux_sqlite)
 - [ ] [00010_redux_settings_view](/00010_redux_settings_view)
 - [ ] [00011_redux_navigation](/00011_redux_navigation)
 - [ ] [00012_redux_clean_architecture](/00012_redux_clean_architecture)
