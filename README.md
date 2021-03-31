@@ -40,3 +40,7 @@ My real "dart_lab" can be found at https://github.com/naxmefy/dart_lab
 - [ ] [00021_redux_camera](/00021_redux_camera)
 - [ ] [00022_redux_contacts](/00022_redux_contacts)
 - [ ] [00023_redux_paint](/00023_redux_paint)
+
+**bloc**
+
+- [ ] [00100_hello_bloc](/00100_hello_bloc]
