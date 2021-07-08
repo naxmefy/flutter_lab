@@ -34,7 +34,7 @@ dependencies:
   retrofit: ^2.0.0
   floor: ^1.1.0
   
-  flutter_bloc: ^6.1.1
+  flutter_bloc: ^7.0.0
   equatable: ^2.0.3
 
   # icons
