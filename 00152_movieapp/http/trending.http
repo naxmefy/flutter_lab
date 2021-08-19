@@ -1,0 +1,1 @@
+GET {{$dotenv URL}}/trending/movie/day?api_key={{$dotenv API_KEY}}
