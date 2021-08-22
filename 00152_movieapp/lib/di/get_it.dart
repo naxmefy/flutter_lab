@@ -27,6 +27,9 @@ Future init() async {
   di.registerLazySingleton<GetPlayingNow>(() => GetPlayingNow(di()));
   di.registerLazySingleton<GetComingSoon>(() => GetComingSoon(di()));
 
-  di.registerFactory(() => MovieCarouselBloc(getTrending: di()));
+  di.registerFactory(() => MovieCarouselBloc(
+        getTrending: di(),
+        movieBackdropBloc: di(),
+      ));
   di.registerFactory(() => MovieBackdropBloc());
 }

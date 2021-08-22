@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movieapp/domain/entities/movie_entity.dart';
+import 'package:movieapp/presentation/jouneys/home/movie_carousel/movie_backdrop_widget.dart';
 import 'package:movieapp/presentation/jouneys/home/movie_carousel/movie_page_view.dart';
 import 'package:movieapp/presentation/widgets/movie_app_bar.dart';
 
@@ -16,12 +17,18 @@ class MovieCarouselWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return Stack(
+      fit: StackFit.expand,
       children: [
-        MovieAppBar(),
-        MoviePageView(
-          movies: movies,
-          initialPage: defaultIndex,
+        MovieBackdropWidget(),
+        Column(
+          children: [
+            MovieAppBar(),
+            MoviePageView(
+              movies: movies,
+              initialPage: defaultIndex,
+            ),
+          ],
         ),
       ],
     );
