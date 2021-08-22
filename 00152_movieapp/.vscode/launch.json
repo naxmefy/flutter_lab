@@ -8,7 +8,7 @@
       "name": "00152_movieapp",
       "request": "launch",
       "type": "dart",
-      "args": ["--no-sound-null-safety"]
+      "args": []
     },
     {
       "name": "00152_movieapp (profile mode)",

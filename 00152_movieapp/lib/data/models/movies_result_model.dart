@@ -1,4 +1,4 @@
-import 'movie_model.dart';
+import 'package:movieapp/data/models/movie_model.dart';
 
 class MoviesResultModel {
   final List<MovieModel> movies;
