@@ -12,6 +12,8 @@ void main() async {
   MoveRemoteDataSource dataSource = MoveRemoteDataSourceImpl(apiClient);
   dataSource.getTrending();
   dataSource.getPopular();
+  dataSource.getPlayingNow();
+  dataSource.getComingSoon();
 
   runApp(MyApp());
 }
@@ -24,7 +26,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Scaffold(),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("YuIRC"),
+          centerTitle: true,
+        ),
+        body: Container(),
+      ),
     );
   }
 }

@@ -3,11 +3,12 @@ import 'package:movieapp/domain/entities/movie_entity.dart';
 class MovieModel extends MovieEntity {
   final int id;
   final String title;
-  final String posterPath;
-  final String backdropPath;
-  final String releaseDate;
+
+  final String? posterPath;
+  final String? backdropPath;
+  final String? releaseDate;
   final String? overview;
-  final double voteAverage;
+  final double? voteAverage;
 
   final bool? video;
   final bool? adult;
@@ -21,11 +22,11 @@ class MovieModel extends MovieEntity {
   MovieModel({
     required this.id,
     required this.title,
-    required this.posterPath,
-    required this.backdropPath,
-    required this.releaseDate,
+    this.posterPath,
+    this.backdropPath,
+    this.releaseDate,
     this.overview,
-    required this.voteAverage,
+    this.voteAverage,
     this.video,
     this.adult,
     this.voteCount,

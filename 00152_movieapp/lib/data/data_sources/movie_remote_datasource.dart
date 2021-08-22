@@ -1,11 +1,12 @@
 import 'package:movieapp/data/core/api_client.dart';
-import 'package:movieapp/data/core/api_constants.dart';
 import 'package:movieapp/data/models/movie_model.dart';
 import 'package:movieapp/data/models/movies_result_model.dart';
 
 abstract class MoveRemoteDataSource {
   Future<List<MovieModel>> getTrending();
   Future<List<MovieModel>> getPopular();
+  Future<List<MovieModel>> getPlayingNow();
+  Future<List<MovieModel>> getComingSoon();
 }
 
 class MoveRemoteDataSourceImpl extends MoveRemoteDataSource {
@@ -15,16 +16,31 @@ class MoveRemoteDataSourceImpl extends MoveRemoteDataSource {
 
   @override
   Future<List<MovieModel>> getTrending() async {
-    return await _getMovies('trending/movie/day');
+    final response = await _client.get('trending/movie/day');
+    final movies = MoviesResultModel.fromJson(response).movies;
+    print(movies);
+    return movies;
   }
 
   @override
   Future<List<MovieModel>> getPopular() async {
-    return await _getMovies('movie/popular');
+    final response = await _client.get('movie/popular');
+    final movies = MoviesResultModel.fromJson(response).movies;
+    print(movies);
+    return movies;
   }
 
-  Future<List<MovieModel>> _getMovies(String path) async {
-    final response = await _client.get(path);
+  @override
+  Future<List<MovieModel>> getComingSoon() async {
+    final response = await _client.get('movie/upcoming');
+    final movies = MoviesResultModel.fromJson(response).movies;
+    print(movies);
+    return movies;
+  }
+
+  @override
+  Future<List<MovieModel>> getPlayingNow() async {
+    final response = await _client.get('movie/now_playing');
     final movies = MoviesResultModel.fromJson(response).movies;
     print(movies);
     return movies;
