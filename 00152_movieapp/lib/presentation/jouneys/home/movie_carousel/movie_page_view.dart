@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 // ignore: import_of_legacy_library_into_null_safe
 import 'package:movieapp/common/screenutil/screnutil.dart';
 import 'package:movieapp/domain/entities/movie_entity.dart';
+import 'package:movieapp/presentation/jouneys/home/movie_carousel/animated_movie_card_widget.dart';
 import 'package:movieapp/presentation/jouneys/home/movie_carousel/movie_card_widget.dart';
 
 class MoviePageView extends StatefulWidget {
@@ -49,10 +50,12 @@ class _MoviePageViewState extends State<MoviePageView> {
         controller: _pageController,
         itemBuilder: (context, index) {
           final MovieEntity movie = widget.movies[index];
-          return MovieCardWidget(
+          return AnimatedMovieCardWidget(
+            index: index,
+            pageController: _pageController,
             movieId: movie.id,
-            posterPath:
-                movie.posterPath!, // FIXME: posterPath can be null here?
+            // FIXME: posterPath can be null here?
+            posterPath: movie.posterPath!,
           );
         },
         pageSnapping: true,
