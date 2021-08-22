@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movieapp/di/get_it.dart';
 import 'package:movieapp/presentation/blocs/movie_carousel/movie_carousel_bloc.dart';
+import 'package:movieapp/presentation/jouneys/home/movie_carousel/movie_carousel_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key? key}) : super(key: key);
@@ -27,21 +29,34 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Stack(
-        fit: StackFit.expand,
-        children: <Widget>[
-          FractionallySizedBox(
-            alignment: Alignment.topCenter,
-            heightFactor: 0.6,
-            child: Placeholder(color: Colors.grey),
-          ),
-          FractionallySizedBox(
-            alignment: Alignment.bottomCenter,
-            heightFactor: 0.4,
-            child: Placeholder(color: Colors.white),
-          ),
-        ],
+    return BlocProvider(
+      create: (context) => movieCarouselBloc,
+      child: Scaffold(
+        body: BlocBuilder<MovieCarouselBloc, MovieCarouselState>(
+          builder: (context, state) {
+            if (state is MovieCarouselLoaded) {
+              return Stack(
+                fit: StackFit.expand,
+                children: <Widget>[
+                  FractionallySizedBox(
+                    alignment: Alignment.topCenter,
+                    heightFactor: 0.6,
+                    child: MovieCarouselWidget(
+                      movies: state.movies,
+                      defaultIndex: state.defaultIndex,
+                    ),
+                  ),
+                  FractionallySizedBox(
+                    alignment: Alignment.bottomCenter,
+                    heightFactor: 0.4,
+                    child: Placeholder(color: Colors.white),
+                  ),
+                ],
+              );
+            }
+            return const SizedBox.shrink();
+          },
+        ),
       ),
     );
   }

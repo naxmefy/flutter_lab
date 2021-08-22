@@ -1,9 +1,9 @@
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+part of screenutil;
 
 extension SizeExtension on num {
-  num get w => ScreenUtil().setWidth(this);
+  double get w => ScreenUtil().setWidth(this);
 
-  num get h => ScreenUtil().setHeight(this);
+  double get h => ScreenUtil().setHeight(this);
 
-  num get sp => ScreenUtil().setSp(this);
+  double get sp => ScreenUtil().setSp(this);
 }

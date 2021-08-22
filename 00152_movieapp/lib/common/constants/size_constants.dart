@@ -1,3 +1,5 @@
+part of screenutil;
+
 class Sizes {
   Sizes._();
 
