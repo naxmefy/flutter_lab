@@ -1,7 +1,4 @@
-import 'dart:convert';
-import 'dart:io';
-
-import 'package:http/http.dart';
+import 'package:movieapp/data/core/api_client.dart';
 import 'package:movieapp/data/core/api_constants.dart';
 import 'package:movieapp/data/models/movie_model.dart';
 import 'package:movieapp/data/models/movies_result_model.dart';
@@ -12,41 +9,23 @@ abstract class MoveRemoteDataSource {
 }
 
 class MoveRemoteDataSourceImpl extends MoveRemoteDataSource {
-  final Client _client;
+  final ApiClient _client;
 
   MoveRemoteDataSourceImpl(this._client);
 
   @override
   Future<List<MovieModel>> getTrending() async {
-    return await _getMovies(
-      '${ApiConstants.BASE_URL}trending/movie/day?api_key=${ApiConstants.apiKey}',
-    );
+    return await _getMovies('trending/movie/day');
   }
 
   @override
   Future<List<MovieModel>> getPopular() async {
-    return await _getMovies(
-      '${ApiConstants.BASE_URL}movie/popular?api_key=${ApiConstants.apiKey}',
-    );
+    return await _getMovies('movie/popular');
   }
 
-  Future<Response> _get(String url) async {
-    final response = await _client.get(
-      url,
-      headers: {'Content-Type': 'application/json'},
-    );
-
-    if (response.statusCode == 200) {
-      return response;
-    } else {
-      throw Exception(response.reasonPhrase);
-    }
-  }
-
-  Future<List<MovieModel>> _getMovies(String url) async {
-    final response = await _get(url);
-    final responseBody = json.decode(response.body);
-    final movies = MoviesResultModel.fromJson(responseBody).moveies;
+  Future<List<MovieModel>> _getMovies(String path) async {
+    final response = await _client.get(path);
+    final movies = MoviesResultModel.fromJson(response).movies;
     print(movies);
     return movies;
   }

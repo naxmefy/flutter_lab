@@ -3,10 +3,12 @@ import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:http/http.dart';
 import 'package:movieapp/data/data_sources/movie_remote_datasource.dart';
 
+import 'data/core/api_client.dart';
+
 void main() async {
   await dotenv.load(fileName: ".env");
 
-  Client apiClient = Client();
+  ApiClient apiClient = ApiClient(Client());
   MoveRemoteDataSource dataSource = MoveRemoteDataSourceImpl(apiClient);
   dataSource.getTrending();
   dataSource.getPopular();

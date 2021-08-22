@@ -1,38 +1,37 @@
-// @dart=2.9
-
 import 'package:movieapp/domain/entities/movie_entity.dart';
 
 class MovieModel extends MovieEntity {
-  final bool video;
-  final double voteAverage;
-  final String overview;
-  final String releaseDate;
-  final bool adult;
-  final String backdropPath;
-  final int voteCount;
-  final List<int> genreIds;
   final int id;
-  final String originalLanguage;
-  final String originalTitle;
-  final String posterPath;
   final String title;
-  final double popularity;
-  final String mediaType;
+  final String posterPath;
+  final String backdropPath;
+  final String releaseDate;
+  final String? overview;
+  final double voteAverage;
+
+  final bool? video;
+  final bool? adult;
+  final int? voteCount;
+  final List<int>? genreIds;
+  final String? originalLanguage;
+  final String? originalTitle;
+  final double? popularity;
+  final String? mediaType;
 
   MovieModel({
-    this.video,
-    this.voteAverage,
+    required this.id,
+    required this.title,
+    required this.posterPath,
+    required this.backdropPath,
+    required this.releaseDate,
     this.overview,
-    this.releaseDate,
+    required this.voteAverage,
+    this.video,
     this.adult,
-    this.backdropPath,
     this.voteCount,
     this.genreIds,
-    this.id,
     this.originalLanguage,
     this.originalTitle,
-    this.posterPath,
-    this.title,
     this.popularity,
     this.mediaType,
   }) : super(
