@@ -1,0 +1,6 @@
+#include "Generated.xcconfig"
+
+FLUTTER_TARGET=lib/main-lemon.dart
+
+ASSET_PREFIX=lemon
+BUNDLE_NAME=Lemon App
