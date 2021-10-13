@@ -91,6 +91,7 @@ flutter:
   # see https://flutter.dev/custom-fonts/#from-packages
 
 flavorizr:
+  ide: vscode
   app:
     android:
       flavorDimensions: "flavor-type"
